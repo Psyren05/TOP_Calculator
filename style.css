@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap');
+
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #main-container {
@@ -14,17 +17,32 @@
 #calculator-body {
     display: flex;
     flex-direction: column;
-    border: #1D1D1D solid 6px;
-    width: 22em; /*352px*/
-    height: 30em; /*480px*/
-    border-radius: 4px;
+    border: #1C1C1C solid 12px;
+    width: 23.5em; /*376px*/
+    height: 32em; /*512px*/
+    border-radius: 6px;
+    background-color: #1C1C1C;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
 }
 
 .display-window {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
     text-align: right;
-    height: 90px;
-    background-color: rgb(194, 192, 192);
-    border: black solid 3px;
+    height: 100px;
+    background-color: #1C1C1C;
+    border: black solid 5px;
+    font-size: 68px;
+    padding: 6px;
+    border-radius: 6px;
+    color: #FFF;
+}
+
+button {
+    border: black solid 2px;
+    border-radius: 8px;
+    font-size: 36px;
 }
 
 .middle-section {
@@ -34,12 +52,12 @@
 }
 
 .operator, .number {
-    width: 99px;
+    width: 105px;
     height: 90px;
 }
 
 .big-number {
-    width: 198px;
+    width: 210px;
     height: 90px;
 }
 
@@ -47,4 +65,19 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.gray-btn {
+    background-color: #D4D4D2;
+    color: #1C1C1C;
+}
+
+.orange-btn {
+    background-color: #FF9500;
+    color: #FFF;
+}
+
+.dark-gray-btn {
+    background-color: #505050;
+    color: #FFF;
 }

@@ -19,6 +19,6 @@ function divide(a, b) {
 }
 
 function operate(firstNumber, secondNumber) {
-    // if add button is pressed, call the add() function return add(firstNumber, secondNumber)
+    // if add button is pressed, call the add() function and return add(firstNumber, secondNumber)
 }
 
