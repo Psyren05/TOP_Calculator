@@ -1,25 +1,49 @@
-let firstNumber;
-let secondNumber;
-let currentOperator;
+let firstNumber = '';
+let secondNumber = '';
+let currentOperator = '';
 let result;
+let displayNumber = '';
 
 const displayWindow = document.getElementById('display-window');
 
-const addBtn = document.getElementById('add-btn');
-const subtractBtn = document.getElementById('subtract-btn');
-const multiplyBtn = document.getElementById('multiply-btn');
-const divideBtn = document.getElementById('divide-btn');
+document.getElementById('1').addEventListener('click', () => {
+    appendNumbers('1')
+});
+document.getElementById('2').addEventListener('click', () => {
+    appendNumbers('2')
+});
+document.getElementById('3').addEventListener('click', () => {
+    appendNumbers('3')
+});
+document.getElementById('4').addEventListener('click', () => {
+    appendNumbers('4')
+});
+document.getElementById('5').addEventListener('click', () => {
+    appendNumbers('5')
+});
+document.getElementById('6').addEventListener('click', () => {
+    appendNumbers('6')
+});
+document.getElementById('7').addEventListener('click', () => {
+    appendNumbers('7')
+});
+document.getElementById('8').addEventListener('click', () => {
+    appendNumbers('8')
+});
+document.getElementById('9').addEventListener('click', () => {
+    appendNumbers('9')
+});
 
-const addBtnClicked = addBtn.addEventListener('click', () => {
+document.getElementById('add-btn').addEventListener('click', () => {
     currentOperator = '+';
 });
-const subtractBtnClicked = subtractBtn.addEventListener('click', () => {
+document.getElementById('subtract-btn').addEventListener('click', () => {
     currentOperator = '-';
 });
-const multiplyBtnClicked = multiplyBtn.addEventListener('click', () => {
-    currentOperator = 'X';
+document.getElementById('multiply-btn').addEventListener('click', () => {
+    currentOperator = 'x';
 });
-const divideBtnClicked = divideBtn.addEventListener('click', () => {
+document.getElementById('divide-btn').addEventListener('click', () => {
     currentOperator = '/';
 });
 
@@ -45,7 +69,7 @@ function operate(firstNumber, secondNumber, currentOperator) {
         result = add(firstNumber, secondNumber);
     } else if (currentOperator === '-') {
         result = subtract(firstNumber, secondNumber);
-    } else if (currentOperator === 'X') {
+    } else if (currentOperator === 'x') {
         result = multiply(firstNumber, secondNumber);
     } else if (currentOperator === '/') {
         result = divide(firstNumber, secondNumber);
@@ -57,6 +81,12 @@ function operate(firstNumber, secondNumber, currentOperator) {
 // the number buttons. You should be storing the ‘display value’ in 
 // a variable somewhere for use in the next step.
 
-function populateDisplay {
-    
+function appendNumbers(number) {
+    displayNumber += number;
+
+    updateDisplay(displayNumber)
+}
+
+function updateDisplay(value) {
+    displayWindow.innerText = value;
 }
