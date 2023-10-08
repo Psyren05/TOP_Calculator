@@ -6,32 +6,35 @@ let displayNumber = '';
 
 const displayWindow = document.getElementById('display-window');
 
+document.getElementById('0').addEventListener('click', () => {
+    appendNumbers('0');
+});
 document.getElementById('1').addEventListener('click', () => {
-    appendNumbers('1')
+    appendNumbers('1');
 });
 document.getElementById('2').addEventListener('click', () => {
-    appendNumbers('2')
+    appendNumbers('2');
 });
 document.getElementById('3').addEventListener('click', () => {
-    appendNumbers('3')
+    appendNumbers('3');
 });
 document.getElementById('4').addEventListener('click', () => {
-    appendNumbers('4')
+    appendNumbers('4');
 });
 document.getElementById('5').addEventListener('click', () => {
-    appendNumbers('5')
+    appendNumbers('5');
 });
 document.getElementById('6').addEventListener('click', () => {
-    appendNumbers('6')
+    appendNumbers('6');
 });
 document.getElementById('7').addEventListener('click', () => {
-    appendNumbers('7')
+    appendNumbers('7');
 });
 document.getElementById('8').addEventListener('click', () => {
-    appendNumbers('8')
+    appendNumbers('8');
 });
 document.getElementById('9').addEventListener('click', () => {
-    appendNumbers('9')
+    appendNumbers('9');
 });
 
 document.getElementById('add-btn').addEventListener('click', () => {
@@ -46,6 +49,14 @@ document.getElementById('multiply-btn').addEventListener('click', () => {
 document.getElementById('divide-btn').addEventListener('click', () => {
     currentOperator = '/';
 });
+
+document.getElementById('decimal-btn').addEventListener('click', () => {
+    appendDecimal(displayNumber);
+})
+
+document.getElementById('clear-btn').addEventListener('click', () => {
+    clearDisplay();
+})
 
 function add(firstNumber, secondNumber) {
     return firstNumber + secondNumber
@@ -87,6 +98,19 @@ function appendNumbers(number) {
     updateDisplay(displayNumber)
 }
 
+function appendDecimal(displayNumber) {
+    displayWindow.innerText = displayNumber + '.'
+}
+
 function updateDisplay(value) {
     displayWindow.innerText = value;
 }
+
+function clearDisplay() {
+    displayWindow.innerText = '0';
+    //clear stored data
+    displayNumber = '';
+}
+
+// fix decimal
+// fix leading zeros
