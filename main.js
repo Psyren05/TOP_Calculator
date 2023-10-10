@@ -51,7 +51,7 @@ document.getElementById('divide-btn').addEventListener('click', () => {
 });
 
 document.getElementById('decimal-btn').addEventListener('click', () => {
-    appendDecimal(displayNumber);
+    appendDecimal();
 })
 
 document.getElementById('clear-btn').addEventListener('click', () => {
@@ -93,13 +93,22 @@ function operate(firstNumber, secondNumber, currentOperator) {
 // a variable somewhere for use in the next step.
 
 function appendNumbers(number) {
-    displayNumber += number;
 
-    updateDisplay(displayNumber)
+    if (displayNumber === '0') {
+        displayWindow.innerText = '0';
+    } else {
+        displayNumber += number;
+
+        updateDisplay(displayNumber)
+    }
 }
 
-function appendDecimal(displayNumber) {
-    displayWindow.innerText = displayNumber + '.'
+function appendDecimal() {
+    if(!displayNumber.includes('.')) {
+        displayNumber += '.';
+
+        updateDisplay(displayNumber);
+    }
 }
 
 function updateDisplay(value) {
@@ -111,6 +120,3 @@ function clearDisplay() {
     //clear stored data
     displayNumber = '';
 }
-
-// fix decimal
-// fix leading zeros

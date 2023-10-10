@@ -56,7 +56,7 @@ button {
     height: 90px;
 }
 
-.big-number {
+.big-btn {
     width: 210px;
     height: 90px;
 }
@@ -80,4 +80,12 @@ button {
 .dark-gray-btn {
     background-color: #505050;
     color: #FFF;
+}
+
+.gray-btn:active {
+    background-color: #F5F5F3;
+} 
+
+.dark-gray-btn:active {
+    background-color: #808080;
 }
