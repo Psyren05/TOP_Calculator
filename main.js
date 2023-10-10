@@ -104,11 +104,12 @@ function appendNumbers(number) {
 }
 
 function appendDecimal() {
-    if(!displayNumber.includes('.')) {
+    if(!displayNumber.includes('.')) { // if the display number does not include . then append decimal
         displayNumber += '.';
-
-        updateDisplay(displayNumber);
+    } else if (displayNumber === '') {
+        displayNumber += '0.';
     }
+    updateDisplay(displayNumber);
 }
 
 function updateDisplay(value) {
@@ -117,6 +118,5 @@ function updateDisplay(value) {
 
 function clearDisplay() {
     displayWindow.innerText = '0';
-    //clear stored data
     displayNumber = '';
 }
