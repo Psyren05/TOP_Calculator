@@ -49,6 +49,9 @@ document.getElementById('multiply-btn').addEventListener('click', () => {
 document.getElementById('divide-btn').addEventListener('click', () => {
     currentOperator = '/';
 });
+// document.getElementById('equals-btn').addEventListener('click', () => {
+//     operate(firstNumber, secondNumber);
+// });
 
 document.getElementById('decimal-btn').addEventListener('click', () => {
     appendDecimal();
@@ -120,3 +123,14 @@ function clearDisplay() {
     displayWindow.innerText = '0';
     displayNumber = '';
 }
+
+// click first number
+// store first number
+// click operator
+// click second number 
+// store second number
+// click equals
+// call operate function 
+
+// firstNumber = displayNumber
+// currentOperator = operator
