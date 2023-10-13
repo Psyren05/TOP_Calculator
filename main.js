@@ -50,9 +50,9 @@ document.getElementById('multiply-btn').addEventListener('click', () => {
 document.getElementById('divide-btn').addEventListener('click', () => {
     currentOperator = '/';
 });
-// document.getElementById('equals-btn').addEventListener('click', () => {
-//     operate(firstNumber, secondNumber);
-// });
+document.getElementById('equals-btn').addEventListener('click', () => {
+    pressEquals();
+});
 
 document.getElementById('decimal-btn').addEventListener('click', () => {
     appendDecimal();
@@ -128,6 +128,7 @@ function clearDisplay() {
 // click first number
 // store first number
 // click operator
+
 // click second number 
 // store second number
 // click equals
@@ -136,10 +137,17 @@ function clearDisplay() {
 function handleOperator(operator) {
     firstNumber = displayNumber;
     currentOperator = operator;
+    displayNumber = ''; // clears display to prepare for secondNumber
+    secondNumber = displayNumber; // this does not work - need to save secondNumber
 }
 
 // firstNumber = displayNumber
 // currentOperator = operator
 // secondNumber = displayNumber
+// pressEqual as a seperate function or in the handleOperator function?
 // operate(firstNumber, secondNumber, currentOperator)
 
+function pressEquals(firstNumber, secondNumber, currentOperator) {
+    result = operate(firstNumber, secondNumber, currentOperator);
+    displayWindow.innerText = result;
+  }

@@ -89,3 +89,12 @@ button {
 .dark-gray-btn:active {
     background-color: #808080;
 }
+
+#equals-btn:active {
+    background-color: #f9bd6a;
+}
+
+#add-btn:focus, #subtract-btn:focus, #multiply-btn:focus, #divide-btn:focus {
+    background-color: #f9bd6a;
+}
+
