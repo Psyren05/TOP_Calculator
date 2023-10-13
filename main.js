@@ -38,13 +38,14 @@ document.getElementById('9').addEventListener('click', () => {
 });
 
 document.getElementById('add-btn').addEventListener('click', () => {
-    currentOperator = '+';
+    handleOperator('+');
+    console.log(firstNumber, currentOperator, secondNumber)
 });
 document.getElementById('subtract-btn').addEventListener('click', () => {
     currentOperator = '-';
 });
 document.getElementById('multiply-btn').addEventListener('click', () => {
-    currentOperator = 'x';
+    currentOperator = 'x'; 
 });
 document.getElementById('divide-btn').addEventListener('click', () => {
     currentOperator = '/';
@@ -132,5 +133,13 @@ function clearDisplay() {
 // click equals
 // call operate function 
 
+function handleOperator(operator) {
+    firstNumber = displayNumber;
+    currentOperator = operator;
+}
+
 // firstNumber = displayNumber
 // currentOperator = operator
+// secondNumber = displayNumber
+// operate(firstNumber, secondNumber, currentOperator)
+
