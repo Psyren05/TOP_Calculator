@@ -42,13 +42,13 @@ document.getElementById('add-btn').addEventListener('click', () => {
     console.log(firstNumber, currentOperator, secondNumber)
 });
 document.getElementById('subtract-btn').addEventListener('click', () => {
-    currentOperator = '-';
+    handleOperator('-');
 });
 document.getElementById('multiply-btn').addEventListener('click', () => {
-    currentOperator = 'x'; 
+    handleOperator('x'); 
 });
 document.getElementById('divide-btn').addEventListener('click', () => {
-    currentOperator = '/';
+    handleOperator('/');
 });
 document.getElementById('equals-btn').addEventListener('click', () => {
     pressEquals();
@@ -92,14 +92,11 @@ function operate(firstNumber, secondNumber, currentOperator) {
         displayWindow.innerText = result;
     }   return result
 }
-// Create the functions that populate the display when you click 
-// the number buttons. You should be storing the ‘display value’ in 
-// a variable somewhere for use in the next step.
 
 function appendNumbers(number) {
 
     if (displayNumber === '0') {
-        displayWindow.innerText = '0';
+        firstNumber = '';
     } else {
         displayNumber += number;
 
@@ -121,24 +118,16 @@ function updateDisplay(value) {
 }
 
 function clearDisplay() {
-    displayWindow.innerText = '0';
-    displayNumber = '';
+    displayWindow.innerText = '0'; // it should not only clear the display, it should also clear the memory
+    displayNumber = '0';
 }
 
-// click first number
-// store first number
-// click operator
-
-// click second number 
-// store second number
-// click equals
-// call operate function 
-
 function handleOperator(operator) {
-    firstNumber = displayNumber;
-    currentOperator = operator;
-    displayNumber = ''; // clears display to prepare for secondNumber
-    secondNumber = displayNumber; // this does not work - need to save secondNumber
+    if (firstNumber  === '' && currentOperator === '') {
+        firstNumber = displayNumber;
+        currentOperator = operator;
+        displayNumber = '';
+    }
 }
 
 // firstNumber = displayNumber
@@ -148,6 +137,6 @@ function handleOperator(operator) {
 // operate(firstNumber, secondNumber, currentOperator)
 
 function pressEquals(firstNumber, secondNumber, currentOperator) {
-    result = operate(firstNumber, secondNumber, currentOperator);
+    result = operate(parseFloat(firstNumber), parseFloat(secondNumber), currentOperator);
     displayWindow.innerText = result;
   }
