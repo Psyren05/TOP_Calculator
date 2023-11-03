@@ -1,7 +1,7 @@
 let firstNumber = '';
 let secondNumber = '';
 let currentOperator = '';
-let result;
+let result = '';
 let displayNumber = '';
 
 const displayWindow = document.getElementById('display-window');
@@ -39,7 +39,6 @@ document.getElementById('9').addEventListener('click', () => {
 
 document.getElementById('add-btn').addEventListener('click', () => {
     handleOperator('+');
-    console.log(firstNumber, currentOperator, secondNumber)
 });
 document.getElementById('subtract-btn').addEventListener('click', () => {
     handleOperator('-');
@@ -59,38 +58,21 @@ document.getElementById('decimal-btn').addEventListener('click', () => {
 })
 
 document.getElementById('clear-btn').addEventListener('click', () => {
-    clearDisplay();
+    clearBtn();
 })
 
-function add(firstNumber, secondNumber) {
-    return firstNumber + secondNumber
-}
-
-function subtract(firstNumber, secondNumber) {
-    return firstNumber - secondNumber
-}
-
-function multiply(firstNumber, secondNumber) {
-    return firstNumber * secondNumber
-}
-
-function divide(firstNumber, secondNumber) {
-    return firstNumber / secondNumber
-}
-
 function operate(firstNumber, secondNumber, currentOperator) {
-    // if add button is pressed, call the add() function and return add(firstNumber, secondNumber)
-    if (currentOperator === '+') {
-        result = add(firstNumber, secondNumber);
-    } else if (currentOperator === '-') {
-        result = subtract(firstNumber, secondNumber);
-    } else if (currentOperator === 'x') {
-        result = multiply(firstNumber, secondNumber);
-    } else if (currentOperator === '/') {
-        result = divide(firstNumber, secondNumber);
 
-        displayWindow.innerText = result;
-    }   return result
+    if (currentOperator === '+') {
+        result = parseFloat(firstNumber) + parseFloat(secondNumber)
+    } else if (currentOperator === '-') {
+        result = parseFloat(firstNumber) - parseFloat(secondNumber)
+    } else if (currentOperator === 'x') {
+        result = parseFloat(firstNumber) * parseFloat(secondNumber)
+    } else if (currentOperator === '/') {
+        result = parseFloat(firstNumber) / parseFloat(secondNumber)
+    }
+    return result
 }
 
 function appendNumbers(number) {
@@ -117,26 +99,26 @@ function updateDisplay(value) {
     displayWindow.innerText = value;
 }
 
-function clearDisplay() {
-    displayWindow.innerText = '0'; // it should not only clear the display, it should also clear the memory
-    displayNumber = '0';
+function clearBtn() {
+    firstNumber = '';
+    secondNumber = '';
+    currentOperator = '';
+    displayNumber = '';
+    displayWindow.innerText = '0'; 
 }
 
 function handleOperator(operator) {
-    if (firstNumber  === '' && currentOperator === '') {
+    if (currentOperator === '') {       // This code first checks if currentOperator is empty. If it is, it means this is the first operator pressed, and it sets firstNumber and currentOperator as expected. If an operator has already been pressed, it sets secondNumber and resets displayNumber for the next input.
         firstNumber = displayNumber;
         currentOperator = operator;
+        displayNumber = '';
+    } else {
+        secondNumber = displayNumber;
         displayNumber = '';
     }
 }
 
-// firstNumber = displayNumber
-// currentOperator = operator
-// secondNumber = displayNumber
-// pressEqual as a seperate function or in the handleOperator function?
-// operate(firstNumber, secondNumber, currentOperator)
-
-function pressEquals(firstNumber, secondNumber, currentOperator) {
+function pressEquals() {
     result = operate(parseFloat(firstNumber), parseFloat(secondNumber), currentOperator);
     displayWindow.innerText = result;
   }
